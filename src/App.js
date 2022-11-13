@@ -15,9 +15,13 @@ function App() {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${searchName}`).then(response => {
       let pokemonAttributes = response.data
       setPokemonInfo({
-        name: pokemonAttributes.name
+        name: pokemonAttributes.name,
+        image: pokemonAttributes.sprites.front_default,
+        ability1: pokemonAttributes.abilities[0].ability.name,
+        ability2: pokemonAttributes.abilities[1].ability.name
       })
       console.log(pokemonInfo)
+      console.log(response.data)
     })
       .catch((error) => {
         setError(error.response)
@@ -35,11 +39,14 @@ function App() {
         </p>
         <button onClick={(search)}>Get Info</button>
         <div>
-          {!pokemonInfo.name.length === 0 ?
+          {pokemonInfo.name.length === 0 ?
             (<h1>Enter a Pokemon</h1>) :
             (<div>
               <h1>{pokemonInfo.name}</h1>
+              <img className="App-image" src={pokemonInfo.image} alt={pokemonInfo.name} />
+              <h2> Abilities: {pokemonInfo.abilitiy1} {pokemonInfo.ability2}</h2>
             </div>)}
+          { }
         </div>
 
       </header>
