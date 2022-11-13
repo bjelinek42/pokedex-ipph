@@ -21,12 +21,9 @@ function App() {
         ability1: pokemonAttributes.abilities[0].ability.name,
         ability2: pokemonAttributes.abilities[1].ability.name
       })
-      console.log(pokemonInfo)
-      console.log(response.data)
     })
       .catch((error) => {
         setError(error.response)
-        console.log(error)
         window.alert("No Match Found")
       });
   }
