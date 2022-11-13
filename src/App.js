@@ -34,6 +34,13 @@ function App() {
           Enter a pokemon: <input type="text" onChange={(event) => { setSearchName(event.target.value) }} />
         </p>
         <button onClick={(search)}>Get Info</button>
+        <div>
+          {!pokemonInfo.name.length === 0 ?
+            (<h1>Enter a Pokemon</h1>) :
+            (<div>
+              <h1>{pokemonInfo.name}</h1>
+            </div>)}
+        </div>
 
       </header>
     </div>
