@@ -5,12 +5,13 @@ import { useState } from 'react'
 
 function App() {
 
+  const [searchName, setSearchName] = useState("")
   const [pokemonInfo, setPokemonInfo] = useState({
     name: ""
   })
 
   const search = () => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/ditto`).then(response => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${searchName}`).then(response => {
       let pokemonAttributes = response.data
       setPokemonInfo({
         name: pokemonAttributes.name
@@ -24,7 +25,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Enter a pokemon: <input type="text" />
+          Enter a pokemon: <input type="text" onChange={(event) => { setSearchName(event.target.value) }} />
         </p>
         <button onClick={(search)}>Get Info</button>
 
