@@ -9,6 +9,7 @@ function App() {
   const [pokemonInfo, setPokemonInfo] = useState({
     name: ""
   })
+  const [error, setError] = useState()
 
   const search = () => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${searchName}`).then(response => {
@@ -18,6 +19,11 @@ function App() {
       })
       console.log(pokemonInfo)
     })
+      .catch((error) => {
+        setError(error.response)
+        console.log(error)
+        window.alert("No Match Found")
+      });
   }
 
   return (
