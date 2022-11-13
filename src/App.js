@@ -1,12 +1,19 @@
 import logo from './images/pokemonLogo.png';
 import './App.css';
 import axios from 'axios'
+import { useState } from 'react'
 
 function App() {
 
+  const [pokemonInfo, setPokemonInfo] = useState({
+    name: ""
+  })
   axios.get(`https://pokeapi.co/api/v2/pokemon/ditto`).then(response => {
-    console.log(response.data)
-
+    let pokemonAttributes = response.data
+    setPokemonInfo({
+      name: pokemonAttributes.name
+    })
+    console.log(pokemonInfo)
   })
 
   return (
