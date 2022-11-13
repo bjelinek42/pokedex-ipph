@@ -30,3 +30,18 @@
   min-height: 50vh;
   padding: none
 }
+
+nav {
+  height: 35px;
+  display: flex;
+  padding: 10px 10px;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+  align-items: left;
+  background-color: #5DB9FF;
+}
+
+.nav--logo {
+  display: flex;
+  max-width: 100px;
+  border-color: white
+}
