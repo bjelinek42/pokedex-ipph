@@ -44,7 +44,7 @@ function App() {
             (<div>
               <h1>{pokemonInfo.name}</h1>
               <img className="App-image" src={pokemonInfo.image} alt={pokemonInfo.name} />
-              <h2> Abilities: {pokemonInfo.abilitiy1} {pokemonInfo.ability2}</h2>
+              <h2> Abilities: {pokemonInfo.ability1}, {pokemonInfo.ability2}</h2>
             </div>)}
           { }
         </div>
